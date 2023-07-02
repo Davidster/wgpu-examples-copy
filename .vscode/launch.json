@@ -1,0 +1,658 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "lldb",
+      "request": "launch",
+      "name": "Debug executable 'boids'",
+      "cargo": {
+        "args": [
+          "build",
+          "--bin=boids",
+          "--package=wgpu-boids-example"
+        ],
+        "filter": {
+          "name": "boids",
+          "kind": "bin"
+        }
+      },
+      "args": [],
+      "cwd": "${workspaceFolder}"
+    },
+    {
+      "type": "lldb",
+      "request": "launch",
+      "name": "Debug unit tests in executable 'boids'",
+      "cargo": {
+        "args": [
+          "test",
+          "--no-run",
+          "--bin=boids",
+          "--package=wgpu-boids-example"
+        ],
+        "filter": {
+          "name": "boids",
+          "kind": "bin"
+        }
+      },
+      "args": [],
+      "cwd": "${workspaceFolder}"
+    },
+    {
+      "type": "lldb",
+      "request": "launch",
+      "name": "Debug unit tests in library 'wgpu-example'",
+      "cargo": {
+        "args": [
+          "test",
+          "--no-run",
+          "--lib",
+          "--package=wgpu-example"
+        ],
+        "filter": {
+          "name": "wgpu-example",
+          "kind": "lib"
+        }
+      },
+      "args": [],
+      "cwd": "${workspaceFolder}"
+    },
+    {
+      "type": "lldb",
+      "request": "launch",
+      "name": "Debug unit tests in library 'wgpu-test'",
+      "cargo": {
+        "args": [
+          "test",
+          "--no-run",
+          "--lib",
+          "--package=wgpu-test"
+        ],
+        "filter": {
+          "name": "wgpu-test",
+          "kind": "lib"
+        }
+      },
+      "args": [],
+      "cwd": "${workspaceFolder}"
+    },
+    {
+      "type": "lldb",
+      "request": "launch",
+      "name": "Debug integration test 'wgpu-tests'",
+      "cargo": {
+        "args": [
+          "test",
+          "--no-run",
+          "--test=wgpu-tests",
+          "--package=wgpu-test"
+        ],
+        "filter": {
+          "name": "wgpu-tests",
+          "kind": "test"
+        }
+      },
+      "args": [],
+      "cwd": "${workspaceFolder}"
+    },
+    {
+      "type": "lldb",
+      "request": "launch",
+      "name": "Debug executable 'bunnymark'",
+      "cargo": {
+        "args": [
+          "build",
+          "--bin=bunnymark",
+          "--package=wgpu-bunnymark-example"
+        ],
+        "filter": {
+          "name": "bunnymark",
+          "kind": "bin"
+        }
+      },
+      "args": [],
+      "cwd": "${workspaceFolder}"
+    },
+    {
+      "type": "lldb",
+      "request": "launch",
+      "name": "Debug unit tests in executable 'bunnymark'",
+      "cargo": {
+        "args": [
+          "test",
+          "--no-run",
+          "--bin=bunnymark",
+          "--package=wgpu-bunnymark-example"
+        ],
+        "filter": {
+          "name": "bunnymark",
+          "kind": "bin"
+        }
+      },
+      "args": [],
+      "cwd": "${workspaceFolder}"
+    },
+    {
+      "type": "lldb",
+      "request": "launch",
+      "name": "Debug executable 'capture'",
+      "cargo": {
+        "args": [
+          "build",
+          "--bin=capture",
+          "--package=wgpu-capture-example"
+        ],
+        "filter": {
+          "name": "capture",
+          "kind": "bin"
+        }
+      },
+      "args": [],
+      "cwd": "${workspaceFolder}"
+    },
+    {
+      "type": "lldb",
+      "request": "launch",
+      "name": "Debug unit tests in executable 'capture'",
+      "cargo": {
+        "args": [
+          "test",
+          "--no-run",
+          "--bin=capture",
+          "--package=wgpu-capture-example"
+        ],
+        "filter": {
+          "name": "capture",
+          "kind": "bin"
+        }
+      },
+      "args": [],
+      "cwd": "${workspaceFolder}"
+    },
+    {
+      "type": "lldb",
+      "request": "launch",
+      "name": "Debug executable 'conservative-raster'",
+      "cargo": {
+        "args": [
+          "build",
+          "--bin=conservative-raster",
+          "--package=wgpu-conservative-raster-example"
+        ],
+        "filter": {
+          "name": "conservative-raster",
+          "kind": "bin"
+        }
+      },
+      "args": [],
+      "cwd": "${workspaceFolder}"
+    },
+    {
+      "type": "lldb",
+      "request": "launch",
+      "name": "Debug unit tests in executable 'conservative-raster'",
+      "cargo": {
+        "args": [
+          "test",
+          "--no-run",
+          "--bin=conservative-raster",
+          "--package=wgpu-conservative-raster-example"
+        ],
+        "filter": {
+          "name": "conservative-raster",
+          "kind": "bin"
+        }
+      },
+      "args": [],
+      "cwd": "${workspaceFolder}"
+    },
+    {
+      "type": "lldb",
+      "request": "launch",
+      "name": "Debug executable 'cube'",
+      "cargo": {
+        "args": [
+          "build",
+          "--bin=cube",
+          "--release",
+          "--package=wgpu-cube-example"
+        ],
+        "filter": {
+          "name": "cube",
+          "kind": "bin"
+        }
+      },
+      "args": [],
+      "cwd": "${workspaceFolder}"
+    },
+    {
+      "type": "lldb",
+      "request": "launch",
+      "name": "Debug unit tests in executable 'cube'",
+      "cargo": {
+        "args": [
+          "test",
+          "--no-run",
+          "--bin=cube",
+          "--package=wgpu-cube-example"
+        ],
+        "filter": {
+          "name": "cube",
+          "kind": "bin"
+        }
+      },
+      "args": [],
+      "cwd": "${workspaceFolder}"
+    },
+    {
+      "type": "lldb",
+      "request": "launch",
+      "name": "Debug executable 'hello'",
+      "cargo": {
+        "args": [
+          "build",
+          "--bin=hello",
+          "--package=wgpu-hello-example"
+        ],
+        "filter": {
+          "name": "hello",
+          "kind": "bin"
+        }
+      },
+      "args": [],
+      "cwd": "${workspaceFolder}"
+    },
+    {
+      "type": "lldb",
+      "request": "launch",
+      "name": "Debug unit tests in executable 'hello'",
+      "cargo": {
+        "args": [
+          "test",
+          "--no-run",
+          "--bin=hello",
+          "--package=wgpu-hello-example"
+        ],
+        "filter": {
+          "name": "hello",
+          "kind": "bin"
+        }
+      },
+      "args": [],
+      "cwd": "${workspaceFolder}"
+    },
+    {
+      "type": "lldb",
+      "request": "launch",
+      "name": "Debug executable 'hello-compute'",
+      "cargo": {
+        "args": [
+          "build",
+          "--bin=hello-compute",
+          "--package=wgpu-hello-compute-example"
+        ],
+        "filter": {
+          "name": "hello-compute",
+          "kind": "bin"
+        }
+      },
+      "args": [],
+      "cwd": "${workspaceFolder}"
+    },
+    {
+      "type": "lldb",
+      "request": "launch",
+      "name": "Debug unit tests in executable 'hello-compute'",
+      "cargo": {
+        "args": [
+          "test",
+          "--no-run",
+          "--bin=hello-compute",
+          "--package=wgpu-hello-compute-example"
+        ],
+        "filter": {
+          "name": "hello-compute",
+          "kind": "bin"
+        }
+      },
+      "args": [],
+      "cwd": "${workspaceFolder}"
+    },
+    {
+      "type": "lldb",
+      "request": "launch",
+      "name": "Debug executable 'hello-triangle'",
+      "cargo": {
+        "args": [
+          "build",
+          "--bin=hello-triangle",
+          "--package=wgpu-hello-triangle-example"
+        ],
+        "filter": {
+          "name": "hello-triangle",
+          "kind": "bin"
+        }
+      },
+      "args": [],
+      "cwd": "${workspaceFolder}"
+    },
+    {
+      "type": "lldb",
+      "request": "launch",
+      "name": "Debug unit tests in executable 'hello-triangle'",
+      "cargo": {
+        "args": [
+          "test",
+          "--no-run",
+          "--bin=hello-triangle",
+          "--package=wgpu-hello-triangle-example"
+        ],
+        "filter": {
+          "name": "hello-triangle",
+          "kind": "bin"
+        }
+      },
+      "args": [],
+      "cwd": "${workspaceFolder}"
+    },
+    {
+      "type": "lldb",
+      "request": "launch",
+      "name": "Debug executable 'hello-windows'",
+      "cargo": {
+        "args": [
+          "build",
+          "--bin=hello-windows",
+          "--package=wgpu-hello-windows-example"
+        ],
+        "filter": {
+          "name": "hello-windows",
+          "kind": "bin"
+        }
+      },
+      "args": [],
+      "cwd": "${workspaceFolder}"
+    },
+    {
+      "type": "lldb",
+      "request": "launch",
+      "name": "Debug unit tests in executable 'hello-windows'",
+      "cargo": {
+        "args": [
+          "test",
+          "--no-run",
+          "--bin=hello-windows",
+          "--package=wgpu-hello-windows-example"
+        ],
+        "filter": {
+          "name": "hello-windows",
+          "kind": "bin"
+        }
+      },
+      "args": [],
+      "cwd": "${workspaceFolder}"
+    },
+    {
+      "type": "lldb",
+      "request": "launch",
+      "name": "Debug executable 'mipmap'",
+      "cargo": {
+        "args": [
+          "build",
+          "--bin=mipmap",
+          "--package=wgpu-mipmap-example"
+        ],
+        "filter": {
+          "name": "mipmap",
+          "kind": "bin"
+        }
+      },
+      "args": [],
+      "cwd": "${workspaceFolder}"
+    },
+    {
+      "type": "lldb",
+      "request": "launch",
+      "name": "Debug unit tests in executable 'mipmap'",
+      "cargo": {
+        "args": [
+          "test",
+          "--no-run",
+          "--bin=mipmap",
+          "--package=wgpu-mipmap-example"
+        ],
+        "filter": {
+          "name": "mipmap",
+          "kind": "bin"
+        }
+      },
+      "args": [],
+      "cwd": "${workspaceFolder}"
+    },
+    {
+      "type": "lldb",
+      "request": "launch",
+      "name": "Debug executable 'msaa-line'",
+      "cargo": {
+        "args": [
+          "build",
+          "--bin=msaa-line",
+          "--package=wgpu-msaa-line-example"
+        ],
+        "filter": {
+          "name": "msaa-line",
+          "kind": "bin"
+        }
+      },
+      "args": [],
+      "cwd": "${workspaceFolder}"
+    },
+    {
+      "type": "lldb",
+      "request": "launch",
+      "name": "Debug unit tests in executable 'msaa-line'",
+      "cargo": {
+        "args": [
+          "test",
+          "--no-run",
+          "--bin=msaa-line",
+          "--package=wgpu-msaa-line-example"
+        ],
+        "filter": {
+          "name": "msaa-line",
+          "kind": "bin"
+        }
+      },
+      "args": [],
+      "cwd": "${workspaceFolder}"
+    },
+    {
+      "type": "lldb",
+      "request": "launch",
+      "name": "Debug executable 'shadow'",
+      "cargo": {
+        "args": [
+          "build",
+          "--bin=shadow",
+          "--package=wgpu-shadow-example"
+        ],
+        "filter": {
+          "name": "shadow",
+          "kind": "bin"
+        }
+      },
+      "args": [],
+      "cwd": "${workspaceFolder}"
+    },
+    {
+      "type": "lldb",
+      "request": "launch",
+      "name": "Debug unit tests in executable 'shadow'",
+      "cargo": {
+        "args": [
+          "test",
+          "--no-run",
+          "--bin=shadow",
+          "--package=wgpu-shadow-example"
+        ],
+        "filter": {
+          "name": "shadow",
+          "kind": "bin"
+        }
+      },
+      "args": [],
+      "cwd": "${workspaceFolder}"
+    },
+    {
+      "type": "lldb",
+      "request": "launch",
+      "name": "Debug executable 'skybox'",
+      "cargo": {
+        "args": [
+          "build",
+          "--bin=skybox",
+          "--package=wgpu-skybox-example"
+        ],
+        "filter": {
+          "name": "skybox",
+          "kind": "bin"
+        }
+      },
+      "args": [],
+      "cwd": "${workspaceFolder}"
+    },
+    {
+      "type": "lldb",
+      "request": "launch",
+      "name": "Debug unit tests in executable 'skybox'",
+      "cargo": {
+        "args": [
+          "test",
+          "--no-run",
+          "--bin=skybox",
+          "--package=wgpu-skybox-example"
+        ],
+        "filter": {
+          "name": "skybox",
+          "kind": "bin"
+        }
+      },
+      "args": [],
+      "cwd": "${workspaceFolder}"
+    },
+    {
+      "type": "lldb",
+      "request": "launch",
+      "name": "Debug executable 'stencil-triangles'",
+      "cargo": {
+        "args": [
+          "build",
+          "--bin=stencil-triangles",
+          "--package=wgpu-stencil-triangle-example"
+        ],
+        "filter": {
+          "name": "stencil-triangles",
+          "kind": "bin"
+        }
+      },
+      "args": [],
+      "cwd": "${workspaceFolder}"
+    },
+    {
+      "type": "lldb",
+      "request": "launch",
+      "name": "Debug unit tests in executable 'stencil-triangles'",
+      "cargo": {
+        "args": [
+          "test",
+          "--no-run",
+          "--bin=stencil-triangles",
+          "--package=wgpu-stencil-triangle-example"
+        ],
+        "filter": {
+          "name": "stencil-triangles",
+          "kind": "bin"
+        }
+      },
+      "args": [],
+      "cwd": "${workspaceFolder}"
+    },
+    {
+      "type": "lldb",
+      "request": "launch",
+      "name": "Debug executable 'texture-arrays'",
+      "cargo": {
+        "args": [
+          "build",
+          "--bin=texture-arrays",
+          "--package=wgpu-texture-arrays-example"
+        ],
+        "filter": {
+          "name": "texture-arrays",
+          "kind": "bin"
+        }
+      },
+      "args": [],
+      "cwd": "${workspaceFolder}"
+    },
+    {
+      "type": "lldb",
+      "request": "launch",
+      "name": "Debug unit tests in executable 'texture-arrays'",
+      "cargo": {
+        "args": [
+          "test",
+          "--no-run",
+          "--bin=texture-arrays",
+          "--package=wgpu-texture-arrays-example"
+        ],
+        "filter": {
+          "name": "texture-arrays",
+          "kind": "bin"
+        }
+      },
+      "args": [],
+      "cwd": "${workspaceFolder}"
+    },
+    {
+      "type": "lldb",
+      "request": "launch",
+      "name": "Debug executable 'water'",
+      "cargo": {
+        "args": [
+          "build",
+          "--bin=water",
+          "--package=wgpu-water-example"
+        ],
+        "filter": {
+          "name": "water",
+          "kind": "bin"
+        }
+      },
+      "args": [],
+      "cwd": "${workspaceFolder}"
+    },
+    {
+      "type": "lldb",
+      "request": "launch",
+      "name": "Debug unit tests in executable 'water'",
+      "cargo": {
+        "args": [
+          "test",
+          "--no-run",
+          "--bin=water",
+          "--package=wgpu-water-example"
+        ],
+        "filter": {
+          "name": "water",
+          "kind": "bin"
+        }
+      },
+      "args": [],
+      "cwd": "${workspaceFolder}"
+    }
+  ]
+}

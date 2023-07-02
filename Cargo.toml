@@ -171,3 +171,6 @@ web-sys = "0.3.61"
 
 # # Speed up image comparison even in debug builds
 # [profile.dev.package."nv
+
+[profile.release]
+debug = true
