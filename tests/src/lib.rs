@@ -2,6 +2,7 @@
 #![allow(dead_code)] // This module is used in a lot of contexts and only parts of it will be used
 
 use std::panic::{catch_unwind, AssertUnwindSafe};
+use std::sync::Arc;
 
 use wgpu::{Adapter, Device, DownlevelFlags, Instance, Queue, Surface};
 use wgpu::{Backends, DeviceDescriptor, DownlevelCapabilities, Features, Limits};
@@ -36,13 +37,13 @@ async fn initialize_device(
 }
 
 pub struct TestingContext {
-    pub adapter: Adapter,
+    pub adapter: Arc<Adapter>,
     pub adapter_info: wgpu::AdapterInfo,
     pub adapter_downlevel_capabilities: wgpu::DownlevelCapabilities,
-    pub device: Device,
+    pub device: Arc<Device>,
     pub device_features: wgpu::Features,
     pub device_limits: wgpu::Limits,
-    pub queue: Queue,
+    pub queue: Arc<Queue>,
 }
 
 fn lowest_downlevel_properties() -> DownlevelCapabilities {
@@ -239,6 +240,10 @@ pub fn initialize_test(parameters: TestParameters, test_function: impl FnOnce(Te
         parameters.required_features,
         parameters.required_limits.clone(),
     ));
+
+    let adapter = Arc::new(adapter);
+    let device = Arc::new(device);
+    let queue = Arc::new(queue);
 
     let context = TestingContext {
         adapter,

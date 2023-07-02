@@ -1,5 +1,5 @@
 use bytemuck::{Pod, Zeroable};
-use std::{borrow::Cow, f32::consts, future::Future, mem, pin::Pin, task};
+use std::{borrow::Cow, f32::consts, future::Future, mem, pin::Pin, sync::Arc, task};
 use wgpu::util::DeviceExt;
 
 #[repr(C)]
@@ -124,6 +124,43 @@ impl Example {
     }
 }
 
+fn upload_geometry_in_thread(device: Arc<wgpu::Device>) {
+    std::thread::spawn(move || {
+        const BUFFER_CACHE_SIZE: usize = 256;
+        const SLEEP_TIME_SECS: f32 = 0.001;
+
+        let mut buffers: [Option<(wgpu::Buffer, wgpu::Buffer)>; BUFFER_CACHE_SIZE] =
+            std::array::from_fn(|_| None);
+
+        let mut buffer_index = 0;
+
+        loop {
+            let (vertex_data, index_data) = create_vertices();
+
+            let vertex_buf = device.create_buffer_init(&wgpu::util::BufferInitDescriptor {
+                label: Some("Threaded Vertex Buffer"),
+                contents: bytemuck::cast_slice(&vertex_data),
+                usage: wgpu::BufferUsages::VERTEX,
+            });
+
+            let index_buf = device.create_buffer_init(&wgpu::util::BufferInitDescriptor {
+                label: Some("Threaded Index Buffer"),
+                contents: bytemuck::cast_slice(&index_data),
+                usage: wgpu::BufferUsages::INDEX,
+            });
+
+            std::thread::sleep(std::time::Duration::from_secs_f32(SLEEP_TIME_SECS));
+
+            buffers[buffer_index] = Some((vertex_buf, index_buf));
+
+            buffer_index += 1;
+            if buffer_index == BUFFER_CACHE_SIZE {
+                buffer_index = 0;
+            }
+        }
+    });
+}
+
 impl wgpu_example::framework::Example for Example {
     fn optional_features() -> wgpu::Features {
         wgpu::Features::POLYGON_MODE_LINE
@@ -131,10 +168,12 @@ impl wgpu_example::framework::Example for Example {
 
     fn init(
         config: &wgpu::SurfaceConfiguration,
-        _adapter: &wgpu::Adapter,
-        device: &wgpu::Device,
-        queue: &wgpu::Queue,
+        _adapter: Arc<wgpu::Adapter>,
+        device: Arc<wgpu::Device>,
+        queue: Arc<wgpu::Queue>,
     ) -> Self {
+        upload_geometry_in_thread(device.clone());
+
         // Create the vertex and index buffers
         let vertex_size = mem::size_of::<Vertex>();
         let (vertex_data, index_data) = create_vertices();

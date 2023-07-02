@@ -1,8 +1,8 @@
-use std::future::Future;
 #[cfg(target_arch = "wasm32")]
 use std::str::FromStr;
 #[cfg(not(target_arch = "wasm32"))]
 use std::time::Instant;
+use std::{future::Future, sync::Arc};
 #[cfg(target_arch = "wasm32")]
 use web_sys::{ImageBitmapRenderingContext, OffscreenCanvas};
 use winit::{
@@ -43,9 +43,9 @@ pub trait Example: 'static + Sized {
     }
     fn init(
         config: &wgpu::SurfaceConfiguration,
-        adapter: &wgpu::Adapter,
-        device: &wgpu::Device,
-        queue: &wgpu::Queue,
+        adapter: Arc<wgpu::Adapter>,
+        device: Arc<wgpu::Device>,
+        queue: Arc<wgpu::Queue>,
     ) -> Self;
     fn resize(
         &mut self,
@@ -274,10 +274,15 @@ fn start<E: Example>(
         .expect("Surface isn't supported by the adapter.");
     let surface_view_format = config.format.add_srgb_suffix();
     config.view_formats.push(surface_view_format);
+    config.present_mode = wgpu::PresentMode::AutoNoVsync;
     surface.configure(&device, &config);
 
+    let adapter = Arc::new(adapter);
+    let device = Arc::new(device);
+    let queue = Arc::new(queue);
+
     log::info!("Initializing the example...");
-    let mut example = E::init(&config, &adapter, &device, &queue);
+    let mut example = E::init(&config, adapter.clone(), device.clone(), queue.clone());
 
     #[cfg(not(target_arch = "wasm32"))]
     let mut last_frame_inst = Instant::now();
@@ -550,9 +555,9 @@ pub fn test<E: Example>(mut params: FrameworkRefTest) {
                     alpha_mode: wgpu::CompositeAlphaMode::Auto,
                     view_formats: vec![wgpu::TextureFormat::Rgba8UnormSrgb],
                 },
-                &ctx.adapter,
-                &ctx.device,
-                &ctx.queue,
+                ctx.adapter.clone(),
+                ctx.device.clone(),
+                ctx.queue.clone(),
             );
 
             example.render(&dst_view, &ctx.device, &ctx.queue, &spawner);
