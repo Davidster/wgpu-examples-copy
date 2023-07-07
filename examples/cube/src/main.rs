@@ -127,7 +127,7 @@ impl Example {
 fn upload_geometry_in_thread(device: Arc<wgpu::Device>) {
     std::thread::spawn(move || {
         const BUFFER_CACHE_SIZE: usize = 256;
-        const SLEEP_TIME_SECS: f32 = 0.001;
+        const SLEEP_TIME_SECS: f32 = 0.0000000005;
 
         let mut buffers: [Option<(wgpu::Buffer, wgpu::Buffer)>; BUFFER_CACHE_SIZE] =
             std::array::from_fn(|_| None);
@@ -149,7 +149,7 @@ fn upload_geometry_in_thread(device: Arc<wgpu::Device>) {
                 usage: wgpu::BufferUsages::INDEX,
             });
 
-            std::thread::sleep(std::time::Duration::from_secs_f32(SLEEP_TIME_SECS));
+            // std::thread::sleep(std::time::Duration::from_secs_f32(SLEEP_TIME_SECS));
 
             buffers[buffer_index] = Some((vertex_buf, index_buf));
 

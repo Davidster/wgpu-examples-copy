@@ -99,7 +99,7 @@ serde_json = "1.0.96"
 smallvec = "1"
 static_assertions = "1.1.0"
 thiserror = "1"
-wgpu = { git = "https://github.com/gents83/wgpu.git", rev = "7469572bcb27cae563ebb6ad379f12203d1bf631" }
+wgpu = { git = "https://github.com/gents83/wgpu.git", rev = "9243a926dd79b96bdc82d95ac49d5feafa4f0676" }
 wgpu-example = { version = "0.16", path = "./examples/common" }
 # wgpu-test = { git = "https://github.com/gents83/wgpu.git", rev = "7469572bcb27cae563ebb6ad379f12203d1bf631" }
 wgpu-test = { version = "0.16", path = "./tests" }

@@ -1021,10 +1021,9 @@ dependencies = [
 [[package]]
 name = "metal"
 version = "0.25.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "550b24b0cd4cf923f36bae78eca457b3a10d8a6a14a9c84cb2687b527e6a84af"
+source = "git+https://github.com/gfx-rs/metal-rs.git?rev=a6a0446#a6a04463db388e8fd3e99095ab4fbb87cbe9d69c"
 dependencies = [
- "bitflags 1.3.2",
+ "bitflags 2.3.3",
  "block",
  "core-graphics-types",
  "foreign-types 0.5.0",
@@ -2040,14 +2039,14 @@ dependencies = [
 [[package]]
 name = "wgpu"
 version = "0.16.0"
-source = "git+https://github.com/gents83/wgpu.git?rev=7469572bcb27cae563ebb6ad379f12203d1bf631#7469572bcb27cae563ebb6ad379f12203d1bf631"
+source = "git+https://github.com/gents83/wgpu.git?rev=9243a926dd79b96bdc82d95ac49d5feafa4f0676#9243a926dd79b96bdc82d95ac49d5feafa4f0676"
 dependencies = [
  "arrayvec 0.7.4",
  "cfg-if",
  "js-sys",
  "log",
  "naga",
- "parking_lot 0.12.1",
+ "parking_lot 0.11.2",
  "profiling",
  "raw-window-handle 0.5.2",
  "smallvec",
@@ -2119,7 +2118,7 @@ dependencies = [
 [[package]]
 name = "wgpu-core"
 version = "0.16.0"
-source = "git+https://github.com/gents83/wgpu.git?rev=7469572bcb27cae563ebb6ad379f12203d1bf631#7469572bcb27cae563ebb6ad379f12203d1bf631"
+source = "git+https://github.com/gents83/wgpu.git?rev=9243a926dd79b96bdc82d95ac49d5feafa4f0676#9243a926dd79b96bdc82d95ac49d5feafa4f0676"
 dependencies = [
  "arrayvec 0.7.4",
  "bit-vec",
@@ -2127,7 +2126,7 @@ dependencies = [
  "codespan-reporting",
  "log",
  "naga",
- "parking_lot 0.12.1",
+ "parking_lot 0.11.2",
  "profiling",
  "raw-window-handle 0.5.2",
  "rustc-hash",
@@ -2174,7 +2173,7 @@ dependencies = [
 [[package]]
 name = "wgpu-hal"
 version = "0.16.0"
-source = "git+https://github.com/gents83/wgpu.git?rev=7469572bcb27cae563ebb6ad379f12203d1bf631#7469572bcb27cae563ebb6ad379f12203d1bf631"
+source = "git+https://github.com/gents83/wgpu.git?rev=9243a926dd79b96bdc82d95ac49d5feafa4f0676#9243a926dd79b96bdc82d95ac49d5feafa4f0676"
 dependencies = [
  "android_system_properties",
  "arrayvec 0.7.4",
@@ -2192,12 +2191,12 @@ dependencies = [
  "js-sys",
  "khronos-egl",
  "libc",
- "libloading 0.8.0",
+ "libloading 0.7.4",
  "log",
  "metal",
  "naga",
  "objc",
- "parking_lot 0.12.1",
+ "parking_lot 0.11.2",
  "profiling",
  "range-alloc",
  "raw-window-handle 0.5.2",
@@ -2377,7 +2376,7 @@ dependencies = [
 [[package]]
 name = "wgpu-types"
 version = "0.16.0"
-source = "git+https://github.com/gents83/wgpu.git?rev=7469572bcb27cae563ebb6ad379f12203d1bf631#7469572bcb27cae563ebb6ad379f12203d1bf631"
+source = "git+https://github.com/gents83/wgpu.git?rev=9243a926dd79b96bdc82d95ac49d5feafa4f0676#9243a926dd79b96bdc82d95ac49d5feafa4f0676"
 dependencies = [
  "bitflags 2.3.3",
  "js-sys",
